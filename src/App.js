@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useRef } from 'react';
 import './App.css';
 
 function App() {
+  const footerRef = useRef(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+		<div className="App">
+			<header></header>
+			<body style={{ height: 2000, backgroundColor: '#FFF000' }}>
+				<button onClick={() => footerRef.current.scrollIntoView({ behavior: 'smooth' })}>
+					Scroll to bottom
+				</button>
+			</body>
+			<footer
+				ref={footerRef}
+			>
+				<div style={{ backgroundColor: '#FF0000' }}>
+					<p>Ini Footer</p>
+				</div>
+			</footer>
+		</div>
   );
 }
 
